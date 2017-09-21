@@ -99,13 +99,13 @@
     "storageid": "[resourceId('Microsoft.Storage/storageAccounts', variables('defaultStorageAccountName'))]",
 
     "virtualNetworkName": "vnet",
-    "virtualNetworkAddressSpace": "10.0.0.0/16",
+    "virtualNetworkAddressSpace": "10.0.1.0/21",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
     "subnetNameForBosh": "Bosh",
-    "subnetAddressRangeForBosh": "10.0.0.0/24",
+    "subnetAddressRangeForBosh": "10.0.1.0/22",
     "subnetRefForBosh": "[concat(variables('vnetID'), '/subnets/', variables('subnetNameForBosh'))]",
     "subnetNameForConcourse": "Concourse",
-    "subnetAddressRangeForConcourse": "10.0.16.0/20",
+    "subnetAddressRangeForConcourse": "10.0.8.0/28",
     "devboxNetworkSecurityGroup": "nsg-devbox",
     "boshNetworkSecurityGroup": "nsg-bosh",
     "concourseNetworkSecurityGroup": "nsg-concourse",
@@ -114,10 +114,10 @@
 
     "vmSize": "Standard_D1",
     "nicName": "[parameters('vmName')]",
-    "devboxPrivateIPAddress": "10.0.0.100",
+    "devboxPrivateIPAddress": "10.0.1.100",
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
-    "ubuntuOSVersion": "14.04.3-LTS",
+    "ubuntuOSVersion": "16.04-LTS",
     "sshKeyPath": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
 
     "baseUriAzureCloud": "[parameters('_artifactsLocation')]",
@@ -136,15 +136,15 @@
 
     "environmentAzureCloud": {
       "serviceHostBase": "core.windows.net",
-      "boshReleaseUrl": "https://bosh.io/d/github.com/cloudfoundry/bosh?v=260.3",
-      "boshReleaseSha1": "22c79db2a785efa9cbc32c62b8094500e952e170",
-      "boshAzureCPIReleaseUrl": "https://bosh.io/d/github.com/cloudfoundry-incubator/bosh-azure-cpi-release?v=20",
-      "boshAzureCPIReleaseSha1": "fb0180c685714d064b5a467eb6f2b34388fadf0a",
-      "stemcellUrl": "https://bosh.io/d/stemcells/bosh-azure-hyperv-ubuntu-trusty-go_agent?v=3312.15",
-      "stemcellSha1": "109fae8106f8dba70f3dd6f1c5061907afb03757",
+      "boshReleaseUrl": "https://bosh.io/d/github.com/cloudfoundry/bosh?v=263.2.0",
+      "boshReleaseSha1": "667b00e015a2b53b2ba70cfb97f3bd9f4b09c4ce",
+      "boshAzureCPIReleaseUrl": "https://bosh.io/d/github.com/cloudfoundry-incubator/bosh-azure-cpi-release?v=29",
+      "boshAzureCPIReleaseSha1": "630901d22de58597ef8d5a23be9a5b7107d9ecb4",
+      "stemcellUrl": "https://bosh.io/d/stemcells/bosh-azure-hyperv-ubuntu-trusty-go_agent?v=3445.11",
+      "stemcellSha1": "c70b6854ce1551fbeecfebabfcd6df5215513cad",
       "boshInitUrl": "https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-0.0.99-linux-amd64",
-      "concourseReleaseUrl": "https://github.com/concourse/concourse/releases/download/v2.6.0/concourse-2.6.0.tgz",
-      "gardenReleaseUrl": "https://github.com/concourse/concourse/releases/download/v2.6.0/garden-runc-1.0.4.tgz"
+      "concourseReleaseUrl": "https://github.com/concourse/concourse/releases/download/v3.4.1/concourse-3.4.1.tgz",
+      "gardenReleaseUrl": "https://github.com/concourse/concourse/releases/download/v3.4.1/garden-runc-1.6.0.tgz"
     },
     "environment": "[variables(concat('environment', parameters('environment')))]",
 
