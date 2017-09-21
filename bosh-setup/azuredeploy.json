@@ -96,7 +96,7 @@
     },
     "_artifactsLocation": {
       "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/bosh-setup/",
+      "defaultValue": "https://raw.githubusercontent.com/chhannu/azure-quickstart-templates/master/bosh-setup/",
       "metadata": {
         "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
       }
@@ -123,20 +123,20 @@
     "storageid": "[resourceId('Microsoft.Storage/storageAccounts', variables('defaultStorageAccountName'))]",
 
     "virtualNetworkName": "boshvnet-crp",
-    "virtualNetworkAddressSpace": "10.0.0.0/16",
+    "virtualNetworkAddressSpace": "10.0.1.0/21",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
     "subnetNameForBosh": "Bosh",
-    "subnetAddressRangeForBosh": "10.0.0.0/24",
+    "subnetAddressRangeForBosh": "10.0.1.0/22",
     "subnetRefForBosh": "[concat(variables('vnetID'), '/subnets/', variables('subnetNameForBosh'))]",
     "subnetNameForCloudFoundry": "CloudFoundry",
-    "subnetAddressRangeForCloudFoundry": "10.0.16.0/20",
+    "subnetAddressRangeForCloudFoundry": "10.0.1.0/23",
     "devboxNetworkSecurityGroup": "nsg-devbox",
     "boshNetworkSecurityGroup": "nsg-bosh",
     "cfNetworkSecurityGroup": "nsg-cf",
 
     "vmSize": "Standard_D1_v2",
     "nicName": "[parameters('vmName')]",
-    "devboxPrivateIPAddress": "10.0.0.100",
+    "devboxPrivateIPAddress": "10.0.1.100",
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
     "sshKeyPath": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
