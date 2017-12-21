@@ -15,3 +15,4 @@ mv /tmp/vault_0.9.0_linux_amd64.zip\?_ga\=2.72832858.833076594.1513700779-686395
 unzip /tmp/vault_0.9.0_linux_amd64.zip -d /usr/local/bin/
 export VAULT_ADDR=https://vault.platform.mnscorp.net
 export VAULT_TOKEN=$1
+vault auth -method=github token=$1
